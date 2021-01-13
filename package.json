@@ -46,10 +46,7 @@
       "target": "dmg",
       "category": "public.app-category.developer-tools",
       "icon": "static/app-icon-mac.icns",
-      "hardenedRuntime": true,
       "gatekeeperAssess": false,
-      "entitlements": "build/entitlements.mac.plist",
-      "entitlementsInherit": "build/entitlements.mac.plist",
       "files": [
         "!node_modules/opencv-build/opencv/opencv/",
         "!node_modules/opencv-build/opencv/opencv_contrib/",
@@ -119,12 +116,11 @@
     "prettier:staged": "pretty-quick --staged",
     "postinstall": "electron-builder install-app-deps",
     "notify": "npx @babel/node scripts/notify.js",
-    "upload": "npx @babel/node scripts/ftpUpload.js",
     "fix-dylibs": "npx @babel/node scripts/fixDylibs.js",
     "pack-mac": "npm run bundle && electron-builder",
-    "export-mac": "npm-run-all fix-dylibs pack-mac upload notify",
+    "export-mac": "npm-run-all fix-dylibs pack-mac notify",
     "pack-win": "cross-env DEBUG=electron-builder npm run bundle && electron-builder build --win --x64",
-    "export-win": "npm-run-all pack-win upload notify"
+    "export-win": "npm-run-all pack-win notify"
   },
   "keywords": [
     "ocr"
@@ -178,7 +174,6 @@
     "electron-builder": "^22.8.1",
     "electron-devtools-installer": "^2.2.4",
     "electron-google-analytics": "^0.1.0",
-    "electron-notarize": "^1.0.0",
     "electron-rebuild": "^1.11.0",
     "fix-path": "^3.0.0",
     "ftp-deploy": "^2.3.6",

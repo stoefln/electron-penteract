@@ -209,12 +209,6 @@ function createWindow() {
   win.once('ready-to-show', () => {
     //win.show();
   })
-  win.on('close', e => {
-    if (win) {
-      e.preventDefault()
-      win.webContents.send('app-close')
-    }
-  })
 
   const menu = Menu.buildFromTemplate(menuTemplate)
   Menu.setApplicationMenu(menu)

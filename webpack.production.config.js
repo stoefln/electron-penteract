@@ -1,8 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
 const nodeExternals = require('webpack-node-externals')
-const SentryCliPlugin = require('@sentry/webpack-plugin')
-const package = require('./package.json')
 
 const rules = [
   {
